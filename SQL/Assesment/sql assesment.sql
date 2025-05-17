@@ -1,0 +1,80 @@
+-- Q1
+
+SELECT * FROM Worker
+ORDER BY FIRST_NAME ASC, DEPARTMENT DESC;
+
+
+-- Q2
+
+SELECT * FROM Worker
+WHERE FIRST_NAME IN ('Vipul', 'Satish');
+
+
+-- Q3 
+
+SELECT * FROM Worker
+WHERE FIRST_NAME LIKE '_____h';
+
+-- Q4
+
+SELECT * FROM Worker
+WHERE SALARY BETWEEN 1 AND 100000;
+
+
+-- Q5
+SELECT FIRST_NAME, DEPARTMENT, COUNT(*)
+FROM Worker
+GROUP BY FIRST_NAME, DEPARTMENT
+HAVING COUNT(*) > 1;
+
+
+-- Q6
+SELECT * FROM Worker
+LIMIT 6;
+
+-- Q7
+
+SELECT DEPARTMENT
+FROM Worker
+GROUP BY DEPARTMENT
+HAVING COUNT(*) < 5;
+
+-- Q8
+
+SELECT DEPARTMENT, COUNT(*) AS NumberOfWorkers
+FROM Worker
+GROUP BY DEPARTMENT;
+
+
+-- Q9
+
+SELECT w.FIRST_NAME, w.DEPARTMENT, w.SALARY
+FROM Worker w
+WHERE SALARY = (
+    SELECT MAX(SALARY)
+    FROM Worker
+    WHERE DEPARTMENT = w.DEPARTMENT
+);
+
+-- Question 2: SQL for STUDENT Table (School Database)
+
+-- Q1
+
+SELECT * FROM student;
+
+
+-- Q2
+
+SELECT StdName, DOB FROM student;
+
+-- Q3
+
+SELECT StdName, Stream, Percentage
+FROM student
+WHERE percentage > 80;
+
+
+-- Q5
+
+SELECT * FROM student
+WHERE Stream = 'Science' AND Percentage > 75;
